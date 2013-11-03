@@ -24,6 +24,7 @@ time, mark, audio, video {
     font-size:100%;
     vertical-align:baseline;
     background:transparent;
+    font-family: 'Roboto';
 }
 
 ul, li {
@@ -48,6 +49,12 @@ body {
   src: url('/static/fonts/RobotoExplosion/Roboto-Bold.ttf');
 }
 @font-face {
+  font-family: 'Roboto-CondBold';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/static/fonts/RobotoExplosion/RobotoCondensed-Bold.ttf');
+}
+@font-face {
   font-family: 'Roboto-Black';
   font-style: normal;
   font-weight: 300;
@@ -68,7 +75,7 @@ body {
 /*************** FONTS ABOVE ****************/
 
 .cursor-pointer{ cursor: pointer; }
-
+.float-left{ float: left; }
 
 body {
 	background-color: #f0f0f0;
@@ -91,11 +98,16 @@ body {
 .title {
 	font-family: 'Roboto-Black';
 	font-weight: normal;
+	display: block;
+	vertical-align: baseline;
+	color: black;
+	text-decoration: none;
 }
 #main-article {
 	height: 240px;
 	margin-bottom: 10px;
-	background-color: gray;
+	background: url('/static/img/main-splash_LAX.png');
+	background-size: cover;
 	text-align: center;
 }
 #main-article img.sound-icon{
@@ -105,7 +117,7 @@ body {
 #main-article .title {
 	font-size: 35px;
 	text-transform: uppercase;
-	padding-top: 50px;
+	padding-top: 55px;
 	padding-bottom: 30px;
 }
 .article{
@@ -115,6 +127,18 @@ body {
 .article-banner{
 	height: 100px;
 	text-align: center;
+}
+#ellen.article-banner{
+	background: url('/static/img/main-splash_ellen.png');
+	background-size: cover;
+}
+#justin.article-banner {
+	background: url('/static/img/main-splash_justin.png');
+	background-size: cover;
+}
+#comment-lab.article-banner {
+	background: url('/static/img/main-splash_comment-lab.png');
+	background-size: cover;
 }
 .article-banner img.sound-icon{
 	margin-top: 25px;
@@ -131,58 +155,184 @@ body {
 
 
 /**************** LISTEN PAGE *********/
-#audio-listen #top-nav img{
+.audio-listen-page #top-nav img{
 	margin: 15px;
 }
-#audio-listen #top-nav .title{
+.audio-listen-page #top-nav .title{
 	font-family: 'Roboto-Light';
 	display: inline-block;
+	color: #40bf5f;
 	float: left;
 }
-#audio-listen #main-article{
+.audio-listen-page #main-article{
 	height: 150px;
 }
-#audio-listen #main-article img.sound-icon{
+#kari.audio-listen-page #main-article {
+	background: url('/static/gif/kari_audio_background.gif') no-repeat fixed center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#lax.audio-listen-page #main-article{
+	background: url('/static/gif/LAX.gif') no-repeat fixed center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.audio-listen-page #main-article img.sound-icon{
 	padding-top: 30px;
 }
 #article-audio{
 	width: 90%;
+	height: 5px;
 	margin: auto;
 	display: block;
-	padding-top: 30px;
-	background-color: gray;
+	margin-top: 0;
+	background-color: transparent;
+	padding-top: 100px;
 	border: none;
-	height: 10px;
+}
+#padded-container{
+	padding: 0px 8px;
 }
 #main-article-headline {
-	margin: 16px 8px;
+	margin: 16px 0px;
 }
 #main-article-headline .title {
 	font-size: 18px;
-	margin: 4px;
+	margin: 4px 0px;
 }
 #main-article-headline .sub-title {
-	font-size: 13px;
+	font-size: 12px;
 	font-family: 'Roboto-Medium';
 	color: #868585;
+	margin: 4px 0px;
+}
+#record-your-response-container{
+	margin-bottom: 8px;
+	background-color: #c7c7c7;
+	display: block;
+}
+#record-your-response-container .title{
+	font-family: 'Roboto-Medium';
+	color: #868585;
+	padding: 0;
+	margin: 8px;
+	font-size: 16px;
+	display: inline-block;
+}
+#record-your-response-container .record-icon {
+	background-color: white;
+	padding: 4px;
 	margin: 4px;
+	float: right;
 }
 #advertisement{
-	width: auto;
-	background-color: gray;
+	width: 100%;
+	background-image: url('/static/img/advertisement.png'); 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 	height: 80px;
-	margin: 0 8px;
+	margin-bottom: 5px;
 }
 #comments-title{
 	font-family: 'Roboto-Medium';
 	color: #868585;
-	margin: 14px 8px;
+	margin: 10px 0px;
 }
 
-/************* RECORD-COMMENT PAGE***********/
-.audio-button{
-	height: 70px;
-	background-color: blue;
+.comment-container {
+	float: left;
+	width: 100%;
+	margin: 0;
+	padding: 6px 0;
+	border-bottom: 2px solid #868585;
+}
+.comment-container.video-comment .video, .comment-container.audio-comment .audio{
+	float: left;
+	border: 1px solid black;
+}
+.comment-container.video-comment .title,.comment-container.audio-comment .title{
+	margin: 0 50px 8px 88px;
+	font-size: 14px;
+}
+.comment-container .container{
+	width: 200px;
+}
+.comment-container.audio-comment .audio{
+	width: 80px;
+	height: 80px;
+}
+.comment-container.audio-comment .sound-icon{
+	padding: 15px;
+}
+#MidWesternDad{
+	background: url('/static/img/MidWesternDad.png');
+	background-size: 80px; 
+}
+#LiberalMike{
+	background: url('/static/img/LiberalMike.png');
+	background-size: 80px; 
+}
+.comment-container.text-comment p{
+	color: #c7c7c7;
+	margin: 6px 0;
+	float: left;
+}
+.video-comment .comment-author, .video-comment .fans-count,.audio-comment .comment-author,.audio-comment .fans-count{
+	font-family: 'Roboto-Light';
+	width: 50%;
+	margin: 4px 8px;
+	display:inline-block;
+	float: left;
+	font-size: 12px;
+}
+.comment-author {
+	color: black;
+}
+.fans-count{
+	color: #c7c7c7;
+}
+.rating-container{
+	float: right;
+	color: #c7c7c7;
+	font-family: 'Roboto-Bold';
+}
+.vote-arrow {
+	float: right;
+	text-align: center;
+	width: 100%;
+}
+.rating{
+	font-size: 12px;
+}
+.rating em{
+	font-style: normal;
+	font-family: 'Roboto-CondBold';
+	font-size: 14px;
+}
+
+
+
+
+/************ invisible buttons ******************/
+.invisible-back-button{
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 90px;
+	height: 60px;
+}
+.invisible-button-right{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 90px;
+	height: 60px;
 }
 
 
