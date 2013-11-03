@@ -18,10 +18,10 @@ def apiIndex():
 @api.route('/twilio-record')
 def twilio_record():
 	print('**************** twilio-record ********')
-	return twilio.record_twiml()
+	return twilio_tools.record_twiml()
 
 # Callback once recording is posted
-@api.route('/handle-recording')
+@api.route('/handle-recording', methods=['POST'])
 def handle_recording():
 	print('*************** twilio handle-recording ******')
 	recording_url = request.values.get("RecordingUrl", None)
