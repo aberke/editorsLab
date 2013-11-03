@@ -50,7 +50,7 @@ body {
 @font-face {
   font-family: 'Roboto-Black';
   font-style: normal;
-  font-weight: 700;
+  font-weight: 300;
   src: url('/static/fonts/RobotoExplosion/Roboto-Black.ttf');
 }
 /*************** FONTS ABOVE ****************/
@@ -62,16 +62,21 @@ body {
 	height: 94px;
 	text-align: center;
 }
+#top-nav img{
+	margin: 18px;
+	float: left;
+}
 #top-nav-title{
 	font-size: 34px;
 	padding: 30px 0;
 	text-align: center;
+	font-family: 'Roboto';
 }
 .title {
 	font-family: 'Roboto-Black';
+	font-weight: normal;
 }
 #main-article {
-	border: 1px solid red;
 	height: 640px;
 	margin-bottom: 20px;
 	background-color: gray;
@@ -83,8 +88,9 @@ body {
 	padding-top: 265px;
 	padding-bottom: 30px;
 }
-#main-article img{
+#main-article img.sound-icon{
 	padding-top: 200px;
+	cursor: pointer;
 }
 .article{
 	background-color: gray;
@@ -94,8 +100,9 @@ body {
 	height: 250px;
 	text-align: center;
 }
-.article-banner img{
+.article-banner img.sound-icon{
 	margin-top: 100px;
+	cursor: pointer;
 }
 .headline-container {
 	background-color: white;

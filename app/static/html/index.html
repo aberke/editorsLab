@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="App">
 <head>  
     <meta charset="utf-8">  
     <title>EditorsLab Prototype</title>  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name = "viewport" content = "width = 320,
+       initial-scale = 2.3">  
     <meta name="description" content="Huffpost does editorsLab Hackathon">  
     <meta name="author" content="Alexandra Berke">
     <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon">
@@ -12,17 +13,18 @@
     <link rel="stylesheet" href="static/css/index.css">
 
 </head>
-<body>
+<body ng-controller="IndexCntl">
     <div id="top-nav">
+      <img src="/static/img/huffpost-icon.png"></img>
         <h2 class="title" id="top-nav-title">News</h2>
     </div>
     <div id="main-article">
-            <img height='66px' width='66px' src='/static/img/audio_icon.png'></img>
+            <img class='sound-icon' ng-click="goTo('/article/audio')" height='66px' width='66px' src='/static/img/audio_icon.png'></img>
         <h3 class="title">November Pain</h3>
     </div>
     <div class='article' id='article-1'>
         <div class="article-banner">
-            <img height='66px' width='66px' src='/static/img/audio_icon.png'></img>
+            <img class='sound-icon' height='66px' width='66px' src='/static/img/audio_icon.png'></img>
         </div>
         <div class="headline-container">
             <h3 class='title'>First Headline Blah Blah Blah Blah Blah</h3>
@@ -30,7 +32,7 @@
     </div>
     <div class='article' id='article-2'>
         <div class="article-banner">
-            <img height='66px' width='66px' src='/static/img/audio_icon.png'></img>
+            <img class='sound-icon' height='66px' width='66px' src='/static/img/audio_icon.png'></img>
         </div>
         <div class="headline-container">
             <h3 class='title'>First Headline Blah Blah Blah Blah Blah</h3>
@@ -38,7 +40,7 @@
     </div>
     <div class='article' id='article-3'>
         <div class="article-banner">
-            <img height='66px' width='66px' src='/static/img/audio_icon.png'></img>
+            <img class='sound-icon' height='66px' width='66px' src='/static/img/audio_icon.png'></img>
         </div>
         <div class="headline-container">
             <h3 class='title'>First Headline Blah Blah Blah Blah Blah</h3>
@@ -46,7 +48,7 @@
     </div>
     <div class='article' id='article-4'>
         <div class="article-banner">
-            <img height='66px' width='66px' src='/static/img/audio_icon.png'></img>
+            <img class='sound-icon' height='66px' width='66px' src='/static/img/audio_icon.png'></img>
         </div>
         <div class="headline-container">
             <h3 class='title'>First Headline Blah Blah Blah Blah Blah</h3>
@@ -54,5 +56,13 @@
     </div>
     <a href="/article/normal">article - 1 - normal</a>
     <a href="/article/audio">article - 1 - audio</a>
+
+
+  <script type="text/javascript" src="/static/js/jQuery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="/static/js/angular-1.0.8.min.js"></script>
+
+  <script src="/static/js/app.js"></script>
+  <script src="/static/js/services.js"></script>
+  <script src="/static/js/controllers.js"></script>
 </body>
 </html>

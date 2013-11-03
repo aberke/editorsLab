@@ -1,3 +1,11 @@
+function IndexCntl($scope, $location) {
+
+	$scope.goTo = function(path) {
+		console.log('goTo path: ' + path);
+		window.location.href = path;
+	};
+};
+
 function MainCntl($scope, $location, $timeout, APIService){
 
 	$scope.callStatus;
