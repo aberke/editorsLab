@@ -11,6 +11,11 @@ api = Blueprint('api', __name__)
 def apiIndex():
 	return "I'm an API"
 
+@api.route('/test')
+def apiTest():
+	print('******* testing api **********')
+	return "testing api"
+
 
 # ******************* TWILIO BELOW **************************
 
@@ -26,10 +31,11 @@ def handle_recording():
 	print('*************** twilio handle-recording ******')
 	recording_url = request.values.get("RecordingUrl", None)
 	print('*** recording_url: ' + recording_url)
-	return 'OK'
+	return twilio_tools.handle_recording_twiml()
 
 @api.route('/softphone-token')
 def get_softphone_token():
+	print('*************** get_softphone_token ***********')
 	return twilio_tools.generate_capability_token()
 
 # ******************* TWILIO ABOVE **************************

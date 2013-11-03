@@ -1,12 +1,31 @@
 function IndexCntl($scope, $location) {
 
-	$scope.goTo = function(path) {
+	var clickEventName;
+
+	var goTo = function(path) {
 		console.log('goTo path: ' + path);
 		window.location.href = path;
 	};
+
+	var init = function(){
+		if ('ontouchstart' in document) {
+			clickEventName = 'touchstart';
+		} else {
+			clickEventName = 'click';
+		}
+		console.log('clickEventName: ' + clickEventName);
+
+		$('.goTo-article-listen').on(clickEventName, function(event) {
+			console.log(event);
+			goTo('/article-listen');
+		});
+	}
+	init();
 };
 
 function MainCntl($scope, $location, $timeout, APIService){
+
+	$scope.articleRecordingUrl = "http://api.twilio.com/2010-04-01/Accounts/ACe5b88e1903b04f5735be5341582223cb/Recordings/RE3fbd0653f499d45107da3c76506b5f2e";
 
 	$scope.callStatus;
 
@@ -14,7 +33,7 @@ function MainCntl($scope, $location, $timeout, APIService){
 	$scope.showHangupButton = false;
 
 
-	$scope.recordIntro = function() {
+	var recordComment = function() {
 		if ($scope.currentCaller) {
 			return alert('Call with ' + $scope.currentCaller.firstname + ' ' + $scope.currentCaller.lastname + 'already in progress. You must hang up before you can start a new call.');
 		}
@@ -33,16 +52,30 @@ function MainCntl($scope, $location, $timeout, APIService){
 	$('#hangup-button').on('click', function(){ Twilio.Device.disconnectAll(); });
 	
 	var setupSoftPhone = function(){
+
+		console.log('setupSoftPhone first test:');
+		APIService.test(function() {
+			console.log('test callback');
+		});
+
 		$scope.callStatus = 'Disconnected';
 		
 		APIService.getSoftphoneToken(function(token){
             Twilio.Device.setup(token);
 
-		   $("#call").click(function() {  
+		   $("#record-audio").on("touchend", function() {
+		        console.log('touchend');
+		    });
+		   console.log('hi');
+
+
+		   $("#record-audio").on(clickEventName, function() {
+		   		console.log('touchstart');
+		        $('#test').css('color', 'blue');  
 		        Twilio.Device.connect();
 		    });
-		    $("#hangup").click(function() {  
-		        connection.sendDigits("#");
+		    $("#hangup").on(clickEventName, function() {  
+		        Twilio.Device.disconnectAll();
 		    });
 		 
 		    Twilio.Device.ready(function (device) {
@@ -71,15 +104,32 @@ function MainCntl($scope, $location, $timeout, APIService){
 		    });
 		     
 		    function toggleCallStatus(){
-		        $('#call').toggle();
+		        $('#record-audio').toggle();
 		        $('#hangup').toggle();
 		    }
 		});		
 	};
 
+	var goTo = function(path) {
+		console.log('goTo path: ' + path);
+		window.location.href = path;
+	};
+
+	var clickEventName;
 	var init = function(){
+		console.log('hi');
+		if ('ontouchstart' in document) {
+			clickEventName = 'touchstart';
+		} else {
+			clickEventName = 'click';
+		}
+
+		$('.goTo-index').on(clickEventName, function(event) {
+			goTo('/');
+		});
 
 		setupSoftPhone();
 	}
+	console.log('about to call init');
 	init();
 }

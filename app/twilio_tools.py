@@ -9,10 +9,15 @@ application_sid = os.environ['TWILIO_APPLICATION_SID']
 def generate_capability_token():
 	capability = TwilioCapability(account_sid, auth_token)
 	capability.allow_client_outgoing(application_sid)
-	return capability.generate()
+	token = capability.generate()
+	print('****************** TOKEN: **************')
+	print(token)
+	return token
 
 
-
+def handle_recording_twiml():
+	resp = twilio.twiml.Response()
+	return str(resp)
 
 def record_twiml():
 	resp = twilio.twiml.Response()

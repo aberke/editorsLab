@@ -53,22 +53,38 @@ body {
   font-weight: 300;
   src: url('/static/fonts/RobotoExplosion/Roboto-Black.ttf');
 }
+@font-face {
+  font-family: 'Roboto-Light';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/static/fonts/RobotoExplosion/Roboto-Light.ttf');
+}
+@font-face {
+  font-family: 'Roboto-Medium';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/static/fonts/RobotoExplosion/Roboto-Medium.ttf');
+}
 /*************** FONTS ABOVE ****************/
+
+.cursor-pointer{ cursor: pointer; }
+
+
 body {
 	background-color: #f0f0f0;
 }
 #top-nav{
 	width: 100%;
-	height: 94px;
+	height: 40px;
 	text-align: center;
 }
 #top-nav img{
-	margin: 18px;
+	margin: 10px;
 	float: left;
 }
 #top-nav-title{
-	font-size: 34px;
-	padding: 30px 0;
+	font-size: 20px;
+	padding: 10px 0;
 	text-align: center;
 	font-family: 'Roboto';
 }
@@ -77,40 +93,96 @@ body {
 	font-weight: normal;
 }
 #main-article {
-	height: 640px;
-	margin-bottom: 20px;
+	height: 240px;
+	margin-bottom: 10px;
 	background-color: gray;
 	text-align: center;
 }
-#main-article .title {
-	font-size: 76px;
-	text-transform: uppercase;
-	padding-top: 265px;
-	padding-bottom: 30px;
-}
 #main-article img.sound-icon{
-	padding-top: 200px;
+	padding-top: 80px;
 	cursor: pointer;
+}
+#main-article .title {
+	font-size: 35px;
+	text-transform: uppercase;
+	padding-top: 50px;
+	padding-bottom: 30px;
 }
 .article{
 	background-color: gray;
-	margin: 0 22px 20px 22px;
+	margin: 0 9px 10px 9px;
 }
 .article-banner{
-	height: 250px;
+	height: 100px;
 	text-align: center;
 }
 .article-banner img.sound-icon{
-	margin-top: 100px;
+	margin-top: 25px;
 	cursor: pointer;
 }
 .headline-container {
 	background-color: white;
-	height: 150px;
+	height: 60px;
 }
 .headline-container .title {
-	font-size: 30px;
-	padding: 30px;
+	font-size: 18px;
+	padding: 10px;
+}
+
+
+/**************** LISTEN PAGE *********/
+#audio-listen #top-nav img{
+	margin: 15px;
+}
+#audio-listen #top-nav .title{
+	font-family: 'Roboto-Light';
+	display: inline-block;
+	float: left;
+}
+#audio-listen #main-article{
+	height: 150px;
+}
+#audio-listen #main-article img.sound-icon{
+	padding-top: 30px;
+}
+#article-audio{
+	width: 90%;
+	margin: auto;
+	display: block;
+	padding-top: 30px;
+	background-color: gray;
+	border: none;
+	height: 10px;
+}
+#main-article-headline {
+	margin: 16px 8px;
+}
+#main-article-headline .title {
+	font-size: 18px;
+	margin: 4px;
+}
+#main-article-headline .sub-title {
+	font-size: 13px;
+	font-family: 'Roboto-Medium';
+	color: #868585;
+	margin: 4px;
+}
+#advertisement{
+	width: auto;
+	background-color: gray;
+	height: 80px;
+	margin: 0 8px;
+}
+#comments-title{
+	font-family: 'Roboto-Medium';
+	color: #868585;
+	margin: 14px 8px;
+}
+
+/************* RECORD-COMMENT PAGE***********/
+.audio-button{
+	height: 70px;
+	background-color: blue;
 }
 
 

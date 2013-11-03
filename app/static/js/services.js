@@ -41,6 +41,13 @@ App.factory('APIService', function($rootScope, $http, $q){
         callback(returnedData);
       });
     },
+    test: function(callback) {
+      httpGET('/test').then(function(returnedData) {
+        console.log('test:');
+        console.log(returnedData);
+        callback();
+      });
+    },
 
 
 
